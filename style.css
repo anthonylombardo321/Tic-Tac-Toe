@@ -1,0 +1,187 @@
+:root {
+    --bg-color: purple;
+    --text-color: greenyellow;
+    --button-hover: #603368;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: gray;
+    font-family: 'Courier New', Courier, monospace;
+    position: relative;
+}
+
+header {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.title {
+    font-size: 5rem;
+    text-align: center;
+}
+
+.main {
+    padding-bottom: 2.5rem;
+}
+
+.form-modal, .gameover-modal, .modes-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: none; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modes-modal {
+    display: block;
+}
+
+/* Modal Content/Box */
+.form-content, .gameover-content, .modes-content {
+    background-color: gray;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    box-shadow: 1px 1px 5px 10px white;
+    width: 40%; /* Could be more or less, depending on screen size */
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.gameover-content, .modes-content {
+    width: 40%; /* Could be more or less, depending on screen size */
+    text-align: center;
+}
+
+.gameover-buttons, .game-modes {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input {
+    width: 100%;
+    line-height: 2rem;
+    font-size: 1rem;
+    padding-left: 6px;
+}
+
+.start-btn, .play-again-btn, .new-game-btn, .mode-btn {
+    padding: 1rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.start-btn:hover, .play-again-btn:hover, .new-game-btn:hover, .mode-btn:hover {
+    transform: scale(1.1);
+}
+
+.restart-btn {
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.active-mode, .restart-btn:hover, .mode-btn:hover, .start-btn:hover {
+    background-color: var(--button-hover);
+}
+
+#message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#message-span {
+    margin-bottom: 3px;
+}
+
+.gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 450px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+.field {
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border: 2px solid black;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 100px;
+}
+
+.field:hover:empty {
+    background-color: aquamarine;
+}
+
+.field:not(:empty) {
+    cursor: not-allowed;
+}
+
+.restart {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.restart-btn {
+    padding: 1.2rem 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.3rem;  
+}
